@@ -12,6 +12,11 @@
     <h1>Blog Name</h1>
     <div class='posts'>
         @foreach ($posts as $post)
+        <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
+        </form>
         <div class='posts'>
             <h2 class='title'>
                 <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
@@ -28,7 +33,7 @@
     <div class='paginate'>
         {{ $posts->links() }}
     </div>
-    <a href='/posts/create'>create</a>
+
     <script>
         function deletePost(id) {
             'use strict'
