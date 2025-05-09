@@ -15,13 +15,12 @@
         <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
             @csrf
             @method('DELETE')
-            <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
         </form>
         <div class='posts'>
             <h2 class='title'>
                 <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
             </h2>
-                <p class = 'body' >{{ $post -> body }}</p>
+            <p class='body'>{{ $post -> body }}</p>
         </div>
         @endforeach
     </div>
