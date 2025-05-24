@@ -20,7 +20,12 @@
             <h2 class='title'>
                 <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
             </h2>
-            <p class='body'>{{ $post -> body }}</p>
+                <p class = 'body' >{{ $post -> body }}</p>
+                <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
+                </form>
         </div>
         @endforeach
     </div>
@@ -37,7 +42,6 @@
             }
         }
     </script>
-
 </body>
 
 </html>
